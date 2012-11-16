@@ -87,16 +87,6 @@ ant_home=(/usr/local/apache-ant/default(N-/))
 typeset -xT BOOST_ROOT boost_root
 boost_root=(/usr/local/boost/default(N-/))
 
-typeset -xT NETTY_JAVA_OPTS netty_java_opts
-opts=(
-    -server
-    -Xmx1G
-    -XX:MaxPermSize=256m
-    -XX:+UseConcMarkSweepGC
-    -XX:+UseParNewGC
-)
-for opt in $opts; netty_java_opts="$netty_java_opts $opt"
-
 #rbenv
 if type rbenv > /dev/null 2>&1; then
     eval "$(rbenv init -)"
