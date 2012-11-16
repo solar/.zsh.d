@@ -67,6 +67,8 @@ autoload zed
 
 REPORTTIME=3
 
+bindkey -a 'q' push-line
+
 #################################
 # Terminal
 set terminal title including current directory
