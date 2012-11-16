@@ -25,6 +25,11 @@ update_prompt() {
     if [ -n "$vcs_info_msg_0_" ]; then
         RPROMPT="${vcs_info_msg_0_}"
     fi
+
+    # python virtualenv
+    if [[ -n $VIRTUAL_ENV ]]; then
+        RPROMPT="%{${fg_bold[white]}%}(env: %{${fg[green]}%}`basename \"$VIRTUAL_ENV\"`%{${fg_bold[white]}%})%{${reset_color}%} $RPROMPT"
+    fi
 }
 
 ## コマンド実行前に呼び出されるフック。
