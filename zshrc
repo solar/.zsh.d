@@ -126,3 +126,5 @@ fi
 
 source ~/.zsh.d/zshrc_prompt
 source ~/.zsh.d/zshrc_completion
+
+. $HOME/.zsh.d/z.sh
