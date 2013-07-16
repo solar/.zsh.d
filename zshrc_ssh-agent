@@ -1,0 +1,6 @@
+SSH_SOCKET="/tmp/ssh-agent-solar"
+if [ -S $SSH_AUTH_SOCK -a "$SSH_AUTH_SOCK" != "$SSH_SOCKET" ]; then
+    rm -f $SSH_SOCKET
+    ln -sf $SSH_AUTH_SOCK $SSH_SOCKET
+    export SSH_AUTH_SOCK=$SSH_SOCKET
+fi
