@@ -1,5 +1,5 @@
 # Completion
-fpath=(~/.zsh/functions/Completion ${fpath})
+fpath=(~/.zsh.d/completion ${fpath})
 autoload -U compinit
 compinit
 
