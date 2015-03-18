@@ -1,0 +1,9 @@
+alias -g L=" | $PAGER"
+alias -g G=" | $GREPCMD"
+
+alias ls="ls -hF --color"
+alias la="ls -A"
+alias ll="ls -lA"
+
+alias j="jobs -l"
+

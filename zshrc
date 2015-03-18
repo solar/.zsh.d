@@ -4,16 +4,8 @@
 
 #################################
 # Aliases
-alias -g L=" | $PAGER"
-alias -g G=" | grep"
 
-alias ls="ls -hF --color"
-alias la="ls -A"
-alias ll="ls -lA"
-
-alias j="jobs -l"
-
-# aliase file
+# Aliase file
 alais_files=(
     ~/.zsh.d/zshalias(N-.)
     ~/.zshalias(N-.)
@@ -62,8 +54,6 @@ setopt no_flow_control no_beep long_list_jobs
 setopt complete_aliases
 
 umask 002
-
-autoload zed
 
 REPORTTIME=3
 
@@ -126,5 +116,10 @@ fi
 
 source ~/.zsh.d/zshrc_prompt
 source ~/.zsh.d/zshrc_completion
+
+# direnv
+if type direnv > /dev/null 2>&1; then
+    eval "$(direnv hook zsh)"
+fi
 
 . $HOME/.zsh.d/z.sh

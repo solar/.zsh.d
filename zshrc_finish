@@ -1,0 +1,4 @@
+typeset -U path
+path=(
+    $path(N-/^W)
+)

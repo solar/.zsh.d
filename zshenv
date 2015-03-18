@@ -3,17 +3,6 @@
 #
 
 #################################
-# path
-typeset -U path
-path=(
-    /bin(N-/)
-    $HOME/bin(N-/)
-    $HOME/.rbenv/bin(N-/)
-    /usr/local/bin(N-/)
-    /usr/bin(N-/)
-)
-
-#################################
 # sudo
 typeset -xT SUDO_PATH sudo_path
 typeset -U sudo_path
@@ -31,38 +20,13 @@ fi
 
 #################################
 # grep
-# grep version
-grep_version="$(grep --version | head -n 1 | sed -e 's/^[^0-9.]*\([0-9.]*\)$/\1/')"
 
-# default option
-export GREP_OPTIONS
+export GREPCMD
 
-# don't match binary
-GREP_OPTIONS="--binary-files=without-match"
-case "$grep_version" in
-    1.*|2.[0-4].*|2.5.[0-3])
-        ;;
-    *)
-        # grep 2.5.4~
-        # recursive in directory
-        GREP_OPTIONS="--directories=recurse $GREP_OPTIONS"
-        ;;
-esac
-
-# ignore .tmp
-GREP_OPTIONS="--exclude=\*.tmp $GREP_OPTIONS"
-
-# ignore scm dir
-if grep --help | grep -q -- --exclude-dir; then
-    GREP_OPTIONS="--exclude-dir=.svn $GREP_OPTIONS"
-    GREP_OPTIONS="--exclude-dir=.git $GREP_OPTIONS"
-    GREP_OPTIONS="--exclude-dir=.deps $GREP_OPTIONS"
-    GREP_OPTIONS="--exclude-dir=.libs $GREP_OPTIONS"
-fi
-
-# colored grep
-if grep --help | grep -q -- --color; then
-    GREP_OPTIONS="--color=auto $GREP_OPTIONS"
+if type ag > /dev/null 2>&1; then
+    GREPCMD='ag'
+else
+    GREPCMD='grep'
 fi
 
 #################################
@@ -78,16 +42,30 @@ fi
 # Locale
 export LANG=ja_JP.UTF-8
 
+#################################
+# Path settings
+
+# java
 typeset -xT JAVA_HOME java_home
-java_home=(/usr/java/default(N-/))
+java_home=(
+    /usr/java/default(N-/)
+)
 
-typeset -xT ANT_HOME ant_home
-ant_home=(/usr/local/apache-ant/default(N-/))
+# golang
+typeset -xT GO_ROOT go_root
+go_root=(
+    /usr/local/go(N-/)
+    $HOME/local/go(N-/)
+)
 
-typeset -xT BOOST_ROOT boost_root
-boost_root=(/usr/local/boost/default(N-/))
-
-#rbenv
-if type rbenv > /dev/null 2>&1; then
-    eval "$(rbenv init -)"
-fi
+# path
+typeset -U path
+path=(
+    /bin(N-/)
+    $HOME/bin(N-/)
+    $HOME/.rbenv/bin(N-/)
+    $GO_ROOT/bin(N-/)
+    /usr/local/bin(N-/)
+    /usr/bin(N-/)
+    $path(N-/^W)
+)
