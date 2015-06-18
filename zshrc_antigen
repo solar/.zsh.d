@@ -1,5 +1,5 @@
 # antigen
-source ~/.zsh.d/bundle/antigen.zsh
+source ~/.zsh.d/antigen/antigen.zsh
 
 antigen use oh-my-zsh
 
