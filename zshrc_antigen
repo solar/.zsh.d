@@ -1,0 +1,19 @@
+# antigen
+source ~/.zsh.d/bundle/antigen.zsh
+
+antigen use oh-my-zsh
+
+antigen bundles <<EOBUNDLES
+    zsh-users/zsh-syntax-highlighting
+    git
+    mollifier/anyframe
+    command-not-found
+    pip
+EOBUNDLES
+
+antigen theme robbyrussell
+antigen apply
+
+bindkey '^kc' anyframe-widget-cdr
+bindkey '^kh' anyframe-widget-put-history
+bindkey '^kK' anyframe-widget-kill

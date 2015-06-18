@@ -53,6 +53,10 @@ bindkey "\\en" history-beginning-search-forward-end
 setopt no_flow_control no_beep long_list_jobs
 setopt complete_aliases
 
+# cdr
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+
 umask 002
 
 REPORTTIME=3
@@ -114,6 +118,7 @@ if [ "$TERM" = "screen" ]; then
     chpwd
 fi
 
+source ~/.zsh.d/zshrc_antigen
 source ~/.zsh.d/zshrc_prompt
 source ~/.zsh.d/zshrc_completion
 

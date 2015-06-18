@@ -42,11 +42,11 @@ fi
 # peco
 export PECOCMD
 if type peco > /dev/null 2>&1; then
-    PECOCMD=''
-    alias -g P=" | $PAGER"
-else
     PECOCMD='peco'
     alias -g P=" | $PECOCMD"
+else
+    PECOCMD=''
+    alias -g P=" | $PAGER"
 fi
 
 #################################
