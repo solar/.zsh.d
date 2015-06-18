@@ -6,9 +6,9 @@
 # Aliases
 
 # Aliase file
-alais_files=(
-    ~/.zsh.d/zshalias(N-.)
-    ~/.zshalias(N-.)
+alias_files=(
+    $HOME/.zsh.d/zshalias(N-.)
+    $HOME/.zshalias(N-.)
 )
 for alias_file in ${alias_files}; do
     source "${alias_file}"
