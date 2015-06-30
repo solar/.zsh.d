@@ -1,19 +1,12 @@
 # antigen
 source ~/.zsh.d/antigen/antigen.zsh
 
-antigen use oh-my-zsh
-
 antigen bundles <<EOBUNDLES
-    zsh-users/zsh-syntax-highlighting
-    git
+    sorin-ionescu/prezto
     mollifier/anyframe
-    command-not-found
-    pip
+    zsh-users/zsh-syntax-highlighting
 EOBUNDLES
 
-antigen theme robbyrussell
 antigen apply
 
-bindkey '^kc' anyframe-widget-cdr
-bindkey '^kh' anyframe-widget-put-history
-bindkey '^kK' anyframe-widget-kill
+autoload -Uz promptinit

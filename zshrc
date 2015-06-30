@@ -16,10 +16,6 @@ for alias_file in ${alias_files}; do
 done
 
 #################################
-# vim key bind
-bindkey -v
-
-#################################
 # Moving dirs
 setopt auto_cd auto_pushd
 cdpath=(~)
@@ -60,8 +56,6 @@ add-zsh-hook chpwd chpwd_recent_dirs
 umask 002
 
 REPORTTIME=3
-
-bindkey -a 'q' push-line
 
 #################################
 # Terminal
@@ -121,6 +115,8 @@ fi
 source ~/.zsh.d/zshrc_antigen
 source ~/.zsh.d/zshrc_prompt
 source ~/.zsh.d/zshrc_completion
+
+source ~/.zsh.d/zshrc_keybind
 
 # direnv
 if type direnv > /dev/null 2>&1; then

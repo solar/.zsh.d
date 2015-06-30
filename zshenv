@@ -63,11 +63,11 @@ java_home=(
 )
 
 # golang
-typeset -xT GO_ROOT go_root
-go_root=(
-    /usr/local/go(N-/)
-    $HOME/local/go(N-/)
-)
+# typeset -xT GOROOT goroot
+# goroot=(
+    # /usr/local/go(N-/)
+    # $HOME/local/go(N-/)
+# )
 
 # path
 typeset -U path
@@ -75,7 +75,8 @@ path=(
     /bin(N-/)
     $HOME/bin(N-/)
     $HOME/.rbenv/bin(N-/)
-    $GO_ROOT/bin(N-/)
+    $HOME/projects/others/ghq/bin(N-/)
+    /usr/local/go/bin(N-/)
     /usr/local/bin(N-/)
     /usr/bin(N-/)
     $path(N-/^W)
