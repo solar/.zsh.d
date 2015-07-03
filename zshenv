@@ -10,20 +10,22 @@ sudo_path=({,/usr/local,/usr}/sbin(N-/))
 
 #################################
 # pager
-if type lv > /dev/null 2>&1; then
-    export PAGER="lv"
+unset PAGER
+export PAGER
+
+if type -p lv > /dev/null 2>&1; then
+    PAGER="lv"
     export LV="-c -l"
 else
-    export PAGER="less"
-    alias lv="$PAGER"
+    PAGER="less"
 fi
 
 #################################
 # grep
-
+unset GREPCMD
 export GREPCMD
 
-if type ag > /dev/null 2>&1; then
+if type -p ag > /dev/null 2>&1; then
     GREPCMD='ag'
 else
     GREPCMD='grep'
@@ -32,21 +34,12 @@ fi
 #################################
 # vim for editor
 export EDITOR=vim
-if ! type vim > /dev/null 2>&1; then
-    alias vim=vi
-else
-    alias vi=vim
-fi
 
 #################################
-# peco
-export PECOCMD
-if type peco > /dev/null 2>&1; then
-    PECOCMD='peco'
-    alias -g P=" | $PECOCMD"
-else
-    PECOCMD=''
-    alias -g P=" | $PAGER"
+# Browser
+unset BROWSER
+if type firefox > /dev/null 2>&1; then
+    export BROWSER=firefox
 fi
 
 #################################
@@ -61,13 +54,6 @@ typeset -xT JAVA_HOME java_home
 java_home=(
     /usr/java/default(N-/)
 )
-
-# golang
-# typeset -xT GOROOT goroot
-# goroot=(
-    # /usr/local/go(N-/)
-    # $HOME/local/go(N-/)
-# )
 
 # path
 typeset -U path

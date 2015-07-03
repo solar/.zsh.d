@@ -7,3 +7,17 @@ alias ll="ls -lA"
 
 alias j="jobs -l"
 
+# lv
+if ! type -p lv > /dev/null 2>&1; then
+    alias lv="$PAGER"
+fi
+
+# vim / vi
+if ! type -p vim > /dev/null 2>&1; then
+    alias vim=vi
+fi
+
+# peco
+if type -p peco > /dev/null 2>&1; then
+    alias -g P=" | peco"
+fi
