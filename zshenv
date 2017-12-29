@@ -33,13 +33,22 @@ fi
 
 #################################
 # vim for editor
-export EDITOR=vim
+if type -p nvim > /dev/null 2>&1; then
+    EDITOR='nvim'
+else
+    EDITOR=vim
+fi
+export EDITOR
 
 #################################
 # Browser
 unset BROWSER
-if type firefox > /dev/null 2>&1; then
-    export BROWSER=firefox
+if type vivaldi > /dev/null 2>&1; then
+  export BROWSER=vivaldi
+elif type google-chrome > /dev/null 2>&1; then
+  export BROWSER=google-chrome
+elif type firefox > /dev/null 2>&1; then
+  export BROWSER=firefox
 fi
 
 #################################
