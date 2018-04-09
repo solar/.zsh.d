@@ -2,6 +2,9 @@
 # zshrc
 #
 
+# zplug
+source ~/.zsh.d/rc/zplug.zsh
+
 #################################
 # Aliases
 
@@ -108,11 +111,13 @@ if [ "$TERM" = "screen" ]; then
     chpwd
 fi
 
-source ~/.zsh.d/zshrc_antigen
 source ~/.zsh.d/zshrc_prompt
 source ~/.zsh.d/zshrc_completion
 
 source ~/.zsh.d/zshrc_keybind
+
+source ~/.zsh.d/rc/anyframe.zsh
+source ~/.zsh.d/rc/enhancd.zsh
 
 # direnv
 if type direnv > /dev/null 2>&1; then
