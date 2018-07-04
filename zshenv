@@ -70,9 +70,13 @@ path=(
     /bin(N-/)
     $HOME/bin(N-/)
     $HOME/.rbenv/bin(N-/)
+    $HOME/.yarn/bin(N-/)
     $HOME/projects/others/ghq/bin(N-/)
     /usr/local/go/bin(N-/)
     /usr/local/bin(N-/)
     /usr/bin(N-/)
     $path(N-/^W)
 )
+
+ENHANCD_COMMAND=ecd; export ENHANCD_COMMAND
+
